@@ -5,7 +5,6 @@ fuel_reqs = []
 f = open("input.txt", "r")
 inputLines = f.readlines()
 for i in inputLines:
-    print(i)
     massList.append(int(i))
 
 def fuel_need(mass):    
