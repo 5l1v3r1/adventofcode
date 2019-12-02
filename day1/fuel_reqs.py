@@ -1,17 +1,20 @@
 import math
 
-massList = []
 fuel_reqs = []
 f = open("input.txt", "r")
-inputLines = f.readlines()
-for i in inputLines:
-    massList.append(int(i))
+massList = [int(i) for i in f.readlines()]
 
 def fuel_need(mass):    
     return math.floor(mass / 3) - 2
 
-for mass in massList:    
-    fuel_reqs.append(fuel_need(mass))
-    print("the fuel needed for the mass of each module: ", fuel_need(mass))
+def total_fuel_needs(massList):
+    for mass in massList:
+        total_rf = 0
+        req_fuel = fuel_need(mass)
+        while req_fuel >= 0:
+            total_rf += req_fuel
+            req_fuel = fuel_need(req_fuel)        
+        fuel_reqs.append(total_rf)
+    return sum(fuel_reqs)
 
-print("the sum of the fuel requirements for all of the modules:", sum(fuel_reqs))
+print("the sum of the fuel requirements for all of the modules:", total_fuel_needs(massList))
