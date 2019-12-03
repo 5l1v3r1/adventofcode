@@ -13,7 +13,7 @@ def run_program(noun, verb, codes):
                 codes[codes[i + 3]] = codes[codes[i + 1]] * codes[codes[i + 2]]
             elif opcode == 99: # halting
                 break
-    return codes
+    return codes[0]
 
 # part1
 print(run_program(12, 2, codes))
