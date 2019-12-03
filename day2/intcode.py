@@ -1,5 +1,3 @@
-import numpy
-
 f = open("day2\input.txt", "r")
 codes = [int(i) for i in next(f).split(',')]
 
